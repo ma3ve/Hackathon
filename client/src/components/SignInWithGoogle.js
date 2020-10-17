@@ -4,7 +4,7 @@ import axios from "axios";
 
 class GoogleSocialAuth extends Component {
   googleLogin = async (accesstoken) => {
-    let res = await axios.post("http://localhost:8000/rest-auth/google/", {
+    let res = await axios.post("http://localhost:8000/auth/googleLogin/", {
       access_token: accesstoken,
     });
     console.log(res);

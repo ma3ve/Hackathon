@@ -38,19 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # django rest framework
+    # frameworks
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
     'corsheaders',
 
-    # for social login
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'rest_auth.registration',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    # apps
+    'accounts',
+
 
 
 ]
@@ -140,3 +134,9 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
