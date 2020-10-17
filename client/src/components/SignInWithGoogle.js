@@ -17,16 +17,14 @@ class GoogleSocialAuth extends Component {
   };
   render() {
     return (
-      <div className="App">
-        <h1>LOGIN WITH GOOGLE</h1>
-
-        <GoogleLogin
-          clientId="818473956781-kd61kmfsfbfu73m2o8g6d86qn3rhbjo2.apps.googleusercontent.com"
-          buttonText="LOGIN WITH GOOGLE"
-          onSuccess={this.googleResponse}
-          onFailure={this.googleResponse}
-        />
-      </div>
+      <GoogleLogin
+        clientId="818473956781-kd61kmfsfbfu73m2o8g6d86qn3rhbjo2.apps.googleusercontent.com"
+        buttonText="LOGIN WITH GOOGLE"
+        onSuccess={this.googleResponse}
+        onFailure={this.googleResponse}
+        style={{ width: "100%" }}
+        fullWidth
+      />
     );
   }
 }
