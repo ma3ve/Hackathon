@@ -20,6 +20,7 @@ for i in range(df.shape[0]):
                                     payrate=row['payrate'],
                                     site_name=row['site_name'],
                                     skills=row['skills'],
+                                    postdate=row['postdate'][:10],
                                     uniq_id=row['uniq_id'],
                                 )
     a.save()
