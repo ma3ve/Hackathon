@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from main.models import DataModel
+from main.models import JobModel
 
-class DataModelSerializer(serializers.ModelSerializer):
+class JobModelSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = DataModel
+        model = JobModel
         fields = ("__all__")
 
 
