@@ -4,7 +4,7 @@ export const getToken = async () => {
   let token = Cookies.get("token");
   if (token) {
     try {
-      let res = await axios.get("auth/getuser/", {
+      let res = await axios.get("http://localhost:8000/auth/getuser/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log(res.data);

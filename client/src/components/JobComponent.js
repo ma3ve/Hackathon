@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
 // import JobDetails from "../pages/JobDetails";
 import Button from "@material-ui/core/Button";
+import { images } from "../images";
 
 import {
   Grid,
@@ -29,7 +30,7 @@ function JobComponent() {
       <CardContent style={{ paddingBottom: "0px" }}>
         <img
           className="job-image image-fluid"
-          src="./download.png"
+          src={require("../microsoft.png")}
           alt="job-image"
           width="100px"
           height="100px"
@@ -49,19 +50,19 @@ function JobComponent() {
             label="ajdslfmasdfasd"
             size="small"
             color="primary"
-            style={{ marginRight: "5px" }}
+            style={{ margin: "0 5px 5px 0" }}
           />
           <Chip
             label="adsafsdl"
             size="small"
             color="primary"
-            style={{ marginRight: "5px" }}
+            style={{ margin: "0 5px 5px 0" }}
           />
           <Chip
             label="asdsadfasdf"
             size="small"
             color="primary"
-            style={{ marginRight: "5px" }}
+            style={{ margin: "0 5px 5px 0" }}
           />
         </div>
 

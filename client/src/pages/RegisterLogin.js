@@ -70,6 +70,7 @@ export default function RegisterLogin(props) {
       if (data) {
         props.history.push("/");
       } else {
+        document.getElementById("navbar").style.display = "none";
         document.getElementById("loading-background").style.display =
           "none";
       }
@@ -79,6 +80,7 @@ export default function RegisterLogin(props) {
   let getGoogleToken = (token) => {
     if (token) {
       props.history.push("/");
+      document.getElementById("navbar").style.display = "block";
     }
   };
 

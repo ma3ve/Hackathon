@@ -4,10 +4,14 @@ import HomePage from "./pages/HomePage";
 import JobDetails from "./pages/JobDetails";
 import Profile from "./pages/Profile";
 import RegisterLogin from "./pages/RegisterLogin";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <div style={{ marginBottom: "25px", padding: 0 }} id="navbar">
+        <Navbar />
+      </div>
       <Router>
         <Switch>
           <Route component={RegisterLogin} path="/loginregister" exact />
