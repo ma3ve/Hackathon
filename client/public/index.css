@@ -9,3 +9,7 @@
   width: 100%;
   background-color: white;
 }
+
+.job-image {
+  border-radius: 10%;
+}
