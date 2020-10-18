@@ -6,13 +6,8 @@ df = pd.read_csv('data.csv')
 
 for i in range(df.shape[0]):
     row = df.iloc[i]
-
-    if (i == 500):
-        break
-
-    x = 0
-    if row['numberofpositions']:
-        x = row['numberofpositions']
+    if i % 200 == 0:
+        print(f"On ---{i}th--- object!")
     a = JobModel.objects.create(company=row['company'],
                                 education=row['education'],
                                 experience=row['experience'],
@@ -21,10 +16,11 @@ for i in range(df.shape[0]):
                                 jobid=row['jobid'],
                                 joblocation_address=row['joblocation_address'],
                                 jobtitle=row['jobtitle'],
-                                numberofpositions=x,
+                                numberofpositions=row['numberofpositions'],
                                 payrate=row['payrate'],
                                 site_name=row['site_name'],
                                 skills=row['skills'],
+                                postdate=row['postdate'][:10],
                                 uniq_id=row['uniq_id'],
                                 )
     a.save()
