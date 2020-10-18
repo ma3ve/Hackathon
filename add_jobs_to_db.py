@@ -1,8 +1,8 @@
-# Copy paste and run in python manage.py shell
+# run shell and exec(open("add_jobs_to_db.py").read())
 from jobs.models import JobModel
 import pandas as pd
 
-df = pd.read_csv('data.csv')
+df = pd.read_csv('sap_data.csv')
 
 for i in range(df.shape[0]):
     row = df.iloc[i]
