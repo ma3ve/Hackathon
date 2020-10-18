@@ -1,9 +1,8 @@
 import React from "react";
 import { locations } from "./locations.json";
-import { skills } from "./skills.json";
+import { category } from "./category.json";
 import {
   Button,
-  Container,
   Grid,
   TextField,
   Chip,
@@ -15,7 +14,7 @@ import {
 import Autocomplete from "@material-ui/lab/Autocomplete";
 function Filters() {
   const [selectedLocations, setSelectedLocations] = React.useState([]);
-  const [selectedSkills, setSelectedSkills] = React.useState([]);
+  const [selectedCategory, setSelectedCategory] = React.useState([]);
   const [experience, setExperience] = React.useState();
 
   return (
@@ -54,11 +53,11 @@ function Filters() {
           <Autocomplete
             multiple
             id="fixed-tags-demo"
-            value={selectedSkills}
+            value={selectedCategory}
             onChange={(event, newValue) => {
-              setSelectedSkills([...newValue]);
+              setSelectedCategory([...newValue]);
             }}
-            options={skills}
+            options={category}
             getOptionLabel={(option) => option}
             renderTags={(tagValue, getTagProps) =>
               tagValue.map((option, index) => (
@@ -68,7 +67,7 @@ function Filters() {
             renderInput={(params) => (
               <TextField
                 {...params}
-                label="skills(s)"
+                label="category(s)"
                 variant="outlined"
               />
             )}

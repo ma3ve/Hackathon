@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from django.urls import path
-from .views import get_helloWorld, lr_google
+from .views import get_user, lr_google
 
 urlpatterns = [
-    path('helloworld/', get_helloWorld),
+    path('getuser/', get_user),
     path('googleLogin/', lr_google)
 ]

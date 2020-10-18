@@ -5,15 +5,16 @@ import Cookies from "js-cookie";
 
 class GoogleSocialAuth extends Component {
   googleLogin = async (accesstoken) => {
-    let res = await axios.post("auth/googleLogin/", {
-      access_token: accesstoken,
-    });
-    console.log(res.data);
-    Cookies.set("token", res.data.access_token, {
-      sameSite: "none",
-      secure: true,
-    });
-    return await res.status;
+    try {
+      let res = await axios.post("auth/googleLogin/", {
+        access_token: accesstoken,
+      });
+      Cookies.set("token", res.data.access_token, {
+        sameSite: "none",
+        secure: true,
+      });
+      this.props.getGoogleToken(res.data.access_token);
+    } catch (error) {}
   };
   googleResponse = async (response) => {
     let googleResponse = await this.googleLogin(response.accessToken);

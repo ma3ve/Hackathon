@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
 import SignInWithGoogle from "../components/SignInWithGoogle";
+import { getToken } from "../components/getToken";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RegisterLogin() {
+export default function RegisterLogin(props) {
   const classes = useStyles();
   const [islogin, setislogin] = React.useState(true);
   const [fname, setFname] = React.useState("");
@@ -60,6 +61,25 @@ export default function RegisterLogin() {
     console.log("email", email);
     console.log("password", password);
     console.log("rememberPassword", rememberPassword);
+  };
+
+  useEffect(() => {
+    (async () => {
+      let data = await getToken();
+      console.log(data);
+      if (data) {
+        props.history.push("/");
+      } else {
+        document.getElementById("loading-background").style.display =
+          "none";
+      }
+    })();
+  }, []);
+
+  let getGoogleToken = (token) => {
+    if (token) {
+      props.history.push("/");
+    }
   };
 
   return (
@@ -187,7 +207,7 @@ export default function RegisterLogin() {
               justify="center"
               alignItems="center"
             >
-              <SignInWithGoogle />
+              <SignInWithGoogle getGoogleToken={getGoogleToken} />
             </Grid>
           </form>
         </div>

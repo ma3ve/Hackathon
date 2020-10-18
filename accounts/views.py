@@ -13,8 +13,9 @@ from rest_framework.decorators import permission_classes, api_view
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
-def get_helloWorld(request):
-    return Response({"authorized": True, "content": "hello world"})
+def get_user(request):
+    user = request.user
+    return Response({"authorized": True, "username": user.username})
 
 
 @api_view(["POST"])
