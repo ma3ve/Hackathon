@@ -9,7 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
-import SignInWithGoogle from "./SignInWithGoogle";
+import SignInWithGoogle from "../components/SignInWithGoogle";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,7 +74,6 @@ export default function RegisterLogin() {
         component={Paper}
         elevation={6}
         square
-        justify="center"
       >
         <div className={classes.paper}>
           <h1>JobSeekers</h1>
@@ -182,6 +181,7 @@ export default function RegisterLogin() {
             <Divider style={{ margin: "10px 0" }} />
             <Grid
               xs={12}
+              item
               container
               direction="row"
               justify="center"

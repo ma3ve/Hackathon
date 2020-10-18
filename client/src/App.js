@@ -1,12 +1,21 @@
-import React from "react";
-import logo from "./logo.svg";
-import SignInWithGoogle from "./components/SignInWithGoogle";
-import RegisterLogin from "./components/RegisterLogin";
+import React, { useEffect, createContext } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import JobDetails from "./pages/JobDetails";
+import Profile from "./pages/Profile";
+import RegisterLogin from "./pages/RegisterLogin";
 
 function App() {
   return (
     <div className="App">
-      <RegisterLogin />
+      <Router>
+        <Switch>
+          <Route component={RegisterLogin} path="/loginregister" exact />
+          <Route component={JobDetails} path="/job/:jobId" exact />
+          <Route component={Profile} path="/profile/:profileId" exact />
+          <Route component={HomePage} path="/" exact />
+        </Switch>
+      </Router>
     </div>
   );
 }

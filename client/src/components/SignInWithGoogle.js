@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import GoogleLogin from "react-google-login";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 class GoogleSocialAuth extends Component {
   googleLogin = async (accesstoken) => {
-    let res = await axios.post("http://localhost:8000/auth/googleLogin/", {
+    let res = await axios.post("auth/googleLogin/", {
       access_token: accesstoken,
     });
-    console.log(res);
+    console.log(res.data);
+    Cookies.set("token", res.data.access_token, {
+      sameSite: "none",
+      secure: true,
+    });
     return await res.status;
   };
   googleResponse = async (response) => {
     let googleResponse = await this.googleLogin(response.accessToken);
-    console.log(googleResponse);
-    console.log(response);
   };
   render() {
     return (
