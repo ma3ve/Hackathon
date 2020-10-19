@@ -31,7 +31,7 @@ function HomePage(props) {
       }
 
       const res = await axios.get(
-        `http://https://fastsync.herokuapp.com/api/jobs?${
+        `http://fastsync.herokuapp.com/api/jobs?${
           !pageId ? "page=1" : "page=" + pageId
         }`,
         {

@@ -31,7 +31,7 @@ export default function JobDetails(props) {
       }
 
       const res = await axios.get(
-        `http://https://fastsync.herokuapp.com/api/jobs/${jobId}`,
+        `http://fastsync.herokuapp.com/api/jobs/${jobId}`,
         {
           headers: {
             Authorization: `Bearer ${token.token}`,

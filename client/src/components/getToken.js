@@ -5,7 +5,7 @@ export const getToken = async () => {
   if (token) {
     try {
       let res = await axios.get(
-        "http://https://fastsync.herokuapp.com/auth/getuser/",
+        "http://fastsync.herokuapp.com/auth/getuser/",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
