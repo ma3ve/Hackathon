@@ -37,10 +37,12 @@ def lr_google(request):
         user.username = data['email']
         user.password = make_password(BaseUserManager().make_random_password())
         user.email = data['email']
+        user.first_name = data['emkay']
         user.save()
     token = RefreshToken.for_user(user)
     response = {}
     response['username'] = user.username
     response['access_token'] = str(token.access_token)
     response['refresh_token'] = str(token)
+    response['data'] = data
     return Response(response)
