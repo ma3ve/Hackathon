@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "../components/Filters";
 import { Grid, Container } from "@material-ui/core";
 import JobComponent from "../components/JobComponent";
@@ -6,6 +6,8 @@ import { getToken } from "../components/getToken";
 import Cookies from "js-cookie";
 
 function HomePage(props) {
+  const [token, setToken] = useState("");
+
   useEffect(() => {
     (async () => {
       let data = await getToken();
@@ -18,6 +20,10 @@ function HomePage(props) {
           "none";
       }
     })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {})();
   }, []);
 
   return (

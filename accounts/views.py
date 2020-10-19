@@ -34,11 +34,12 @@ def lr_google(request):
     try:
         user = User.objects.get(email=data['email'])
     except User.DoesNotExist:
+        print("creating user")
         user = User()
         user.username = data['email']
         user.password = make_password(BaseUserManager().make_random_password())
         user.email = data['email']
-        user.first_name = data['emkay']
+        user.first_name = data['name']
         user.save()
     token = RefreshToken.for_user(user)
     response = {}
