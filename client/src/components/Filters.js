@@ -17,11 +17,18 @@ function Filters() {
   const [selectedCategory, setSelectedCategory] = React.useState([]);
   const [experience, setExperience] = React.useState();
 
+  const handleApplyFilter = () => {};
+
   return (
     <>
       <Grid container spacing={2} style={{ marginTop: "10px" }}>
         <Grid item xs={12}>
-          <Button color="primary" variant="contained" size="small">
+          <Button
+            color="primary"
+            variant="contained"
+            size="small"
+            onClick={handleApplyFilter}
+          >
             Apply Filters
           </Button>
         </Grid>
