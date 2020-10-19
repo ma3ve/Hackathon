@@ -3,7 +3,7 @@ from rest_framework.response import Response
 import requests
 from rest_framework.utils import json
 from django.contrib.auth.models import User
-from rest_framework.generics import ListAPIView,CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.hashers import make_password
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -53,50 +53,6 @@ def lr_google(request):
     response['data'] = data
     return Response(response)
 
-class ProfileCreateView(CreateAPIView):
-    permission_classes     = [permissions.IsAuthenticated]
-    serializer_class       = ProfileSerializer
-    queryset               = Profile.objects.all()
-    def perform_create(self,serializer):
-        serializer.save(user = self.request.user)
-
-class EducationCreateView(CreateAPIView):
-    permission_classes     = [permissions.IsAuthenticated]
-    serializer_class       = EducationSerializer
-    queryset               = Education.objects.all()
-    def perform_create(self,serializer):
-        serializer.save(user = self.request.user)
-
-class ExperienceCreateView(CreateAPIView):
-    permission_classes     = [permissions.IsAuthenticated]
-    serializer_class       = ExperienceSerializer
-    queryset               = Experience.objects.all()
-    def perform_create(self,serializer):
-        serializer.save(user = self.request.user)
-
-class EducationListView(ListAPIView):
-    permission_classes     = [permissions.IsAuthenticated]
-    queryset               = Education.objects.all()
-    serializer_class       = EducationSerializer
-
-    def get_queryset(self): 
-        qs = Education.objects.all().filter(user = self.request.user)
-        return qs
-
-class ExperienceListView(ListAPIView):
-    permission_classes     = [permissions.IsAuthenticated]
-    queryset               = Experience.objects.all()
-    serializer_class       = ExperienceSerializer
-
-    def get_queryset(self): 
-        qs = Experience.objects.all().filter(user = self.request.user)
-        return qs
-
-
-
-
-
-
 
 @api_view(['POST'])
 def register_user(request):
@@ -108,3 +64,50 @@ def register_user(request):
     response['access_token'] = str(token.access_token)
     response['refresh_token'] = str(token)
     return Response(response)
+
+
+class ProfileCreateView(CreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = ProfileSerializer
+    queryset = Profile.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+class EducationCreateView(CreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = EducationSerializer
+    queryset = Education.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+class ExperienceCreateView(CreateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = ExperienceSerializer
+    queryset = Experience.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+class EducationListView(ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Education.objects.all()
+    serializer_class = EducationSerializer
+
+    def get_queryset(self):
+        qs = Education.objects.all().filter(user=self.request.user)
+        return qs
+
+
+class ExperienceListView(ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Experience.objects.all()
+    serializer_class = ExperienceSerializer
+
+    def get_queryset(self):
+        qs = Experience.objects.all().filter(user=self.request.user)
+        return qs

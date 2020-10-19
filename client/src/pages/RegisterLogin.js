@@ -60,9 +60,7 @@ export default function RegisterLogin(props) {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `http://fastsync.herokuapp.com/auth/${
-          islogin ? "login" : "register"
-        }/`,
+        `fastsync.herokuapp.com/auth/${islogin ? "login" : "register"}/`,
         {
           username: email,
           first_name: fname,
