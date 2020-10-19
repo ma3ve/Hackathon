@@ -1,0 +1,16 @@
+{
+    "name": "fastsync",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "",
+    "author": "Your Name",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+      "heroku-prebuild": "NODE_ENV=production cd client/ && npm install && npm run build && cd .."
+    },
+    "cacheDirectories": [
+      "client/node_modules"
+    ]
+  }
+  
