@@ -66,4 +66,40 @@ class JobModelViewset(viewsets.ModelViewSet):
 		result_page = paginator.paginate_queryset(nserv, request)
 		serializer = JobModelSerializer(result_page, many=True)
 		return paginator.get_paginated_response(serializer.data)
+
+	@action(detail=False, methods=["GET"])
+	def filter(self, request, *args, **kwargs):
+		# loc = kwargs['pk']
+		q_s = JobModel.objects.all()
+		print(request.query_params)
+		f1 = False
+		if 'loc' in request.query_params:
+			f1 = True
+			loc = request.query_params.get('loc').split(',')
+			active_ids_loc = [job.id for job in JobModel.objects.all() if checkloc(loc, job.joblocation_address)]
+			q_s = JobModel.objects.filter(id__in=active_ids).order_by('-postdate')
+
+		f2 = False
+		if 'exp' in request.query_params:
+			f2 = True
+			exps = request.query_params.get('exp').split(',')
+			active_ids = [job.id for job in JobModel.objects.all() if checkexp(exps, job.job_exp_cat)]
+			if f1:
+				q_s = q_s | JobModel.objects.filter(id__in=active_ids).order_by('-postdate')
+			else:
+				q_s = JobModel.objects.filter(id__in=active_ids).order_by('-postdate')
+		
+		if 'skills' in request.query_params:
+			sks = request.query_params.get('skills').split(',')
+			# nserv = JobModel.objects.filter(skills__in=sks).order_by('-postdate')
+			if f1 or f2:
+				q_s = q_s | JobModel.objects.filter(skills__in=sks).order_by('-postdate')
+			else:
+				q_s = JobModel.objects.filter(skills__in=sks).order_by('-postdate')
+
+		q_s = q_s.order_by('-postdate')
+		paginator = StandardResultsSetPagination()
+		result_page = paginator.paginate_queryset(q_s, request)
+		serializer = JobModelSerializer(result_page, many=True)
+		return paginator.get_paginated_response(serializer.data)
 		
