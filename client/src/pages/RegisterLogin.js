@@ -68,7 +68,10 @@ export default function RegisterLogin(props) {
           password,
         }
       );
-      Cookies.set("token", res.data.access, {
+      let token = res.data.access
+        ? res.data.access
+        : res.data.access_token;
+      Cookies.set("token", token, {
         sameSite: "none",
         secure: true,
       });
