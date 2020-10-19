@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function JobComponent() {
+function JobComponent(props) {
   const classes = useStyles();
-
+  const { data } = props;
   return (
-    <Card>
+    <Card style={{ height: "100%" }}>
       <CardContent style={{ paddingBottom: "0px" }}>
         <img
           className="job-image image-fluid"
@@ -37,29 +37,27 @@ function JobComponent() {
         />
       </CardContent>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          Front End Developer
+        <Typography gutterBottom variant="h5" component="h6">
+          {data.jobtitle.substring(0, 20)}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,
-          porro sint architecto numquam id excepturi? Quos incidunt ad
-          delectus neque.
+          {data.jobdescription.substring(0, 100)}
         </Typography>
         <div style={{ marginTop: "10px" }}>
           <Chip
-            label="ajdslfmasdfasd"
+            label={data.experience}
             size="small"
             color="primary"
             style={{ margin: "0 5px 5px 0" }}
           />
           <Chip
-            label="adsafsdl"
+            label={data.joblocation_address.substring(0, 20)}
             size="small"
             color="primary"
             style={{ margin: "0 5px 5px 0" }}
           />
           <Chip
-            label="asdsadfasdf"
+            label={data.skills}
             size="small"
             color="primary"
             style={{ margin: "0 5px 5px 0" }}

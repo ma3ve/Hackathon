@@ -20,9 +20,9 @@ from . import views
 
 app_name = "jobs"
 
-router = DefaultRouter()
-router.register("jobs", views.JobModelViewset, basename="jobs")
+router = SimpleRouter()
+router.register(r"jobs", views.JobModelViewset, basename="jobs")
 
 urlpatterns = [
-    path("api/", include(router.urls)),
+    path(r"", include(router.urls)),
 ]

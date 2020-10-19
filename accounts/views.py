@@ -12,6 +12,7 @@ from rest_framework.decorators import permission_classes, api_view
 from rest_framework import permissions
 from .serializers import ProfileSerializer, EducationSerializer, ExperienceSerializer
 from .models import Profile, Experience, Education
+from .serializers import UserSerializer
 # Create your views here.
 
 
@@ -37,11 +38,12 @@ def lr_google(request):
     try:
         user = User.objects.get(email=data['email'])
     except User.DoesNotExist:
+        print("creating user")
         user = User()
         user.username = data['email']
         user.password = make_password(BaseUserManager().make_random_password())
         user.email = data['email']
-        user.first_name = data['emkay']
+        user.first_name = data['name']
         user.save()
     token = RefreshToken.for_user(user)
     response = {}
@@ -95,3 +97,14 @@ class ExperienceListView(ListAPIView):
 
 
 
+
+@api_view(['POST'])
+def register_user(request):
+    userSerializer = UserSerializer(data=request.data)
+    if userSerializer.is_valid(raise_exception=True):
+        user = userSerializer.create(userSerializer.validated_data)
+    token = RefreshToken.for_user(user)
+    response = {}
+    response['access_token'] = str(token.access_token)
+    response['refresh_token'] = str(token)
+    return Response(response)
