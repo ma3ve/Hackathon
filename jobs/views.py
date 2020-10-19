@@ -3,6 +3,7 @@ from .models import JobModel
 from .serializers import JobModelSerializer
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 30
@@ -13,5 +14,5 @@ class StandardResultsSetPagination(PageNumberPagination):
 class JobModelViewset(viewsets.ModelViewSet):
 	serializer_class = JobModelSerializer
 	queryset = JobModel.objects.all().order_by('-postdate')
-	# paginate_by = 10
 	pagination_class = StandardResultsSetPagination
+	permission_classes = (IsAuthenticated,)
