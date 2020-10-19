@@ -1,0 +1,92 @@
+  Collecting Django==3.1.2
+remote:          Downloading Django-3.1.2-py3-none-any.whl (7.8 MB)
+remote:        Collecting django-allauth==0.43.0
+remote:          Downloading django-allauth-0.43.0.tar.gz (571 kB)
+remote:        Collecting django-cors-headers==3.3.0
+remote:          Downloading django_cors_headers-3.3.0-py3-none-any.whl (14 kB)
+remote:        Collecting django-jsonfield==1.4.0
+remote:          Downloading django_jsonfield-1.4.0-py2.py3-none-any.whl (14 kB)
+remote:        Collecting django-rest-auth==0.9.5
+remote:          Downloading django-rest-auth-0.9.5.tar.gz (53 kB)
+remote:        Collecting django-rest-framework==0.1.0
+remote:          Downloading django-rest-framework-0.1.0.tar.gz (969 bytes)
+remote:        Collecting django-storages==1.9.1
+remote:          Downloading django_storages-1.9.1-py2.py3-none-any.whl (42 kB)
+remote:        Collecting djangorestframework==3.11.0
+remote:          Downloading djangorestframework-3.11.0-py3-none-any.whl (911 kB)
+remote:        Collecting djangorestframework-api-key==2.0.0
+remote:          Downloading djangorestframework_api_key-2.0.0-py3-none-any.whl (13 kB)
+remote:        Collecting djangorestframework-recursive==0.1.2
+remote:          Downloading djangorestframework_recursive-0.1.2-py2.py3-none-any.whl (4.4 kB)
+remote:        Collecting djangorestframework-simplejwt==4.4.0
+remote:          Downloading djangorestframework_simplejwt-4.4.0-py3-none-any.whl (29 kB)
+remote:        Collecting nose==1.3.7
+remote:          Downloading nose-1.3.7-py3-none-any.whl (154 kB)
+remote:        Collecting pandas
+remote:          Downloading pandas-1.1.3-cp36-cp36m-manylinux1_x86_64.whl (9.5 MB)
+remote:        Collecting pipenv==2020.8.13
+remote:          Downloading pipenv-2020.8.13-py2.py3-none-any.whl (3.9 MB)
+remote:        Collecting PyJWT==1.7.1
+remote:          Downloading PyJWT-1.7.1-py2.py3-none-any.whl (18 kB)
+remote:        Collecting requests
+remote:          Downloading requests-2.24.0-py2.py3-none-any.whl (61 kB)
+remote:        Collecting requests-oauthlib==1.3.0
+remote:          Downloading requests_oauthlib-1.3.0-py2.py3-none-any.whl (23 kB)
+remote:        Collecting asgiref~=3.2.10
+remote:          Downloading asgiref-3.2.10-py3-none-any.whl (19 kB)
+remote:        Collecting sqlparse>=0.2.2
+remote:          Downloading sqlparse-0.4.1-py3-none-any.whl (42 kB)
+remote:        Collecting pytz
+remote:          Downloading pytz-2020.1-py2.py3-none-any.whl (510 kB)
+remote:        Collecting python3-openid>=3.0.8
+remote:          Downloading python3_openid-3.2.0-py3-none-any.whl (133 kB)
+remote:        Collecting six
+remote:          Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+remote:        Collecting python-dateutil>=2.7.3
+remote:          Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+remote:        Collecting numpy>=1.15.4
+remote:          Downloading numpy-1.19.2-cp36-cp36m-manylinux2010_x86_64.whl (14.5 MB)
+remote:        Collecting certifi
+remote:          Downloading certifi-2020.6.20-py2.py3-none-any.whl (156 kB)
+remote:        Collecting virtualenv
+remote:          Downloading virtualenv-20.0.35-py2.py3-none-any.whl (4.9 MB)
+remote:        Collecting virtualenv-clone>=0.2.5
+remote:          Downloading virtualenv_clone-0.5.4-py2.py3-none-any.whl (6.6 kB)
+remote:        Collecting idna<3,>=2.5
+remote:          Downloading idna-2.10-py2.py3-none-any.whl (58 kB)
+remote:        Collecting chardet<4,>=3.0.2
+remote:          Downloading chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+remote:        Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+remote:          Downloading urllib3-1.25.10-py2.py3-none-any.whl (127 kB)
+remote:        Collecting oauthlib>=3.0.0
+remote:          Downloading oauthlib-3.1.0-py2.py3-none-any.whl (147 kB)
+remote:        Collecting defusedxml
+remote:          Downloading defusedxml-0.6.0-py2.py3-none-any.whl (23 kB)
+remote:        Collecting filelock<4,>=3.0.0
+remote:          Downloading filelock-3.0.12-py3-none-any.whl (7.6 kB)
+remote:        Collecting importlib-resources>=1.0; python_version < "3.7"
+remote:          Downloading importlib_resources-3.0.0-py2.py3-none-any.whl (23 kB)
+remote:        Collecting appdirs<2,>=1.4.3
+remote:          Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+remote:        Collecting distlib<1,>=0.3.1
+remote:          Downloading distlib-0.3.1-py2.py3-none-any.whl (335 kB)
+remote:        Collecting importlib-metadata<3,>=0.12; python_version < "3.8"
+remote:          Downloading importlib_metadata-2.0.0-py2.py3-none-any.whl (31 kB)
+remote:        Collecting zipp>=0.4; python_version < "3.8"
+remote:          Downloading zipp-3.3.1-py3-none-any.whl (5.3 kB)
+remote:        Building wheels for collected packages: django-allauth, django-rest-auth, django-rest-framework
+remote:          Building wheel for django-allauth (setup.py): started
+remote:          Building wheel for django-allauth (setup.py): finished with status 'done'
+remote:          Created wheel for django-allauth: filename=django_allauth-0.43.0-py3-none-any.whl size=897431 sha256=91341d7a702ffce07acf7fbe11292339449a5961d7e8e908c7586956385e702b
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-j93vejki/wheels/01/db/df/4011e314d182bfc58eb6d7a9e5582965cea2a95e6ff512aa87
+remote:          Building wheel for django-rest-auth (setup.py): started
+remote:          Building wheel for django-rest-auth (setup.py): finished with status 'done'
+remote:          Created wheel for django-rest-auth: filename=django_rest_auth-0.9.5-py2.py3-none-any.whl size=86824 sha256=29db9fa8e53c0268f4dfd93eeb767d100c86b175d1e8d940e44376f42a6cbd2e
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-j93vejki/wheels/dd/8c/8c/bd380b9f362e2831bc0971deef0625d5e8b3fac99632e2159b
+remote:          Building wheel for django-rest-framework (setup.py): started
+remote:          Building wheel for django-rest-framework (setup.py): finished with status 'done'
+remote:          Created wheel for django-rest-framework: filename=django_rest_framework-0.1.0-py3-none-any.whl size=1377 sha256=eed66e34d68fcf27a7cd5fcb60d93c93e28890e0df5db5c5fac7fa8b4880cbdc
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-j93vejki/wheels/c1/b3/d3/83a470450ef59f40659c468ebbd6f2623d0a9ebd3a34368c04
+remote:        Successfully built django-allauth django-rest-auth django-rest-framework
+remote:        Installing collected packages: asgiref, sqlparse, pytz, Django, defusedxml, python3-openid, oauthlib, idna, certifi, chardet, urllib3, requests, requests-oauthlib, PyJWT, django-allauth, django-cors-headers, six, django-jsonfield, djangorestframework, django-rest-auth, django-rest-framework, django-storages, djangorestframework-api-key, djangorestframework-recursive, djangorestframework-simplejwt, nose, python-dateutil, numpy, pandas, filelock, zipp, importlib-resources, appdirs, distlib, importlib-metadata, virtualenv, virtualenv-clone, pipenv
+remote:        Successfully installed Django-3.1.2 PyJWT-1.7.1 appdirs-1.4.4 asgiref-3.2.10 certifi-2020.6.20 chardet-3.0.4 defusedxml-0.6.0 distlib-0.3.1 django-allauth-0.43.0 django-cors-headers-3.3.0 django-jsonfield-1.4.0 django-rest-auth-0.9.5 django-rest-framework-0.1.0 django-storages-1.9.1 djangorestframework-3.11.0 djangorestframework-api-key-2.0.0 djangorestframework-recursive-0.1.2 djangorestframework-simplejwt-4.4.0 filelock-3.0.12 idna-2.10 importlib-metadata-2.0.0 importlib-resources-3.0.0 nose-1.3.7 numpy-1.19.2 oauthlib-3.1.0 pandas-1.1.3 pipenv-2020.8.13 python-dateutil-2.8.1 python3-openid-3.2.0 pytz-2020.1 requests-2.24.0 requests-oauthlib-1.3.0 six-1.15.0 sqlparse-0.4.1 urllib3-1.25.10 virtualenv-20.0.35 virtualenv-clone-0.5.4 zipp-3.3.1
