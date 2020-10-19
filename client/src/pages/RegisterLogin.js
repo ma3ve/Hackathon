@@ -11,6 +11,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
 import SignInWithGoogle from "../components/SignInWithGoogle";
 import { getToken } from "../components/getToken";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,13 +56,26 @@ export default function RegisterLogin(props) {
   const [password, setPassword] = React.useState("");
   const [rememberPassword, setRememberPassowrd] = React.useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("fname", fname);
-    console.log("lname", lname);
-    console.log("email", email);
-    console.log("password", password);
-    console.log("rememberPassword", rememberPassword);
+    try {
+      const res = await axios.post(
+        `http://localhost:8000/auth/${islogin ? "login" : "register"}/`,
+        {
+          username: email,
+          first_name: fname,
+          last_name: lname,
+          password,
+        }
+      );
+      Cookies.set("token", res.data.access, {
+        sameSite: "none",
+        secure: true,
+      });
+      props.history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
