@@ -1,5 +1,10 @@
 import React, { useEffect, useContext, useReducer } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import JobDetails from "./pages/JobDetails";
 import Profile from "./pages/Profile";
@@ -17,7 +22,8 @@ function App() {
           <Route component={RegisterLogin} path="/loginregister" exact />
           <Route component={JobDetails} path="/job/:jobId" exact />
           <Route component={Profile} path="/profile/:profileId" exact />
-          <Route component={HomePage} path="/" exact />
+          <Route component={HomePage} path="/:pageId" />
+          <Redirect from="/" to="/1" />
         </Switch>
       </Router>
     </div>
