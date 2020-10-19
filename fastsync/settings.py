@@ -27,7 +27,7 @@ SECRET_KEY = 'sci#ns0@lsoadmq^9&u(ciy3m!t!8fn9ong_k$94@p-a2^z0-r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -178,6 +178,3 @@ DATABASES = {
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 DATABASES['default']['CONN_MAX_AGE'] = 500
-
-DEBUG = False
-ALLOWED_HOSTS = ['fastsync.herokuapp.com']
