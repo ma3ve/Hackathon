@@ -71,7 +71,14 @@ function JobComponent(props) {
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Button variant="contained" size="medium" fullWidth>
+            <Button
+              variant="contained"
+              size="medium"
+              fullWidth
+              onClick={(e) => {
+                window.location.href = `http://localhost:3000/job/${data.id}`;
+              }}
+            >
               show
             </Button>
           </Grid>
