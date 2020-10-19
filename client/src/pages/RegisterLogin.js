@@ -12,6 +12,7 @@ import { Divider } from "@material-ui/core";
 import SignInWithGoogle from "../components/SignInWithGoogle";
 import { getToken } from "../components/getToken";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,9 +58,24 @@ export default function RegisterLogin(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const res = await axios.post("http://localhost:8000/auth/token/",data = {
-    //   username :
-    // });
+    try {
+      const res = await axios.post(
+        `http://localhost:8000/auth/${islogin ? "login" : "register"}/`,
+        {
+          username: email,
+          first_name: fname,
+          last_name: lname,
+          password,
+        }
+      );
+      Cookies.set("token", res.data.access, {
+        sameSite: "none",
+        secure: true,
+      });
+      props.history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

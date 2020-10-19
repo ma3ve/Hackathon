@@ -8,6 +8,7 @@ from django.contrib.auth.hashers import make_password
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes, api_view
+from .serializers import UserSerializer
 # Create your views here.
 
 
@@ -45,4 +46,16 @@ def lr_google(request):
     response['access_token'] = str(token.access_token)
     response['refresh_token'] = str(token)
     response['data'] = data
+    return Response(response)
+
+
+@api_view(['POST'])
+def register_user(request):
+    userSerializer = UserSerializer(data=request.data)
+    if userSerializer.is_valid(raise_exception=True):
+        user = userSerializer.create(userSerializer.validated_data)
+    token = RefreshToken.for_user(user)
+    response = {}
+    response['access_token'] = str(token.access_token)
+    response['refresh_token'] = str(token)
     return Response(response)
