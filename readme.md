@@ -1,4 +1,4 @@
-#fastSync
+# fastSync
 
 to get started working on this project. create and activate an env then in the root direactory
 install the packages with the following command
